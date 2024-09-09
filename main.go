@@ -9,6 +9,7 @@ func (self *PostDatabase) Insert() bool {
 	** create: client send data without giving any identifier. 
 	- If the client sends data without any identifier, then we will store the data and assign/generate a new identifier.
 	- If the client again sends the same data without any identifier, then we will store the data and assign/generate a new identifier.
+ 	- If the request contains an ID (could be a dup of existing), then better reject the request.
 	Note: Duplication is allowed here.
 	`)
 	return true
