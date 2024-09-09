@@ -79,7 +79,9 @@ foo(dbPut)
 2. PUT - **must have id in the payload**
 - If the client sends data with an identifier, then we will check whether that identifier exists.
 - If the identifier exists, we will update the resource with the data, else we will create a resource with the data and assign/generate a new identifier.
+- "update and overwrite", replace the ENTIRE RESOURCE with the new representation provided.
 3. PATCH - **must have id in the payload**
 - If the client sends data with an identifier, then we will check whether that identifier exists. If the identifier exists, we will update the resource with the data, else we will throw an exception.
+- "update and merge", replace parts of the source resource with the values provided AND|OR other parts of the resource are updated that you havent provided (timestamps) AND|OR updating the resource effects other resources (relationships)
 
 #### Note: On the PUT method, we are not throwing an exception if an identifier is not found. But in the PATCH method, we are throwing an exception if the identifier is not found.
