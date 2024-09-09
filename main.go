@@ -24,6 +24,7 @@ func (self *PutDatabase) Insert() bool {
 	fmt.Println(`
 	** Replace row: 
 	- The client sends data with an identifier, then we will check whether that identifier exists. If the identifier exists, we will update the resource with the data, else we will create a resource with the data and assign/generate a new identifier.
+ 	- "update and overwrite", replace the ENTIRE RESOURCE with the new representation provided.
 	`)
 	return true
 }
@@ -37,6 +38,7 @@ func (self *PatchDatabase) Insert() bool {
 	fmt.Println(`
 	** Update row: 
 	- The client sends data with an identifier, then we will check whether that identifier exists. If the identifier exists, we will update the resource with the data, else we will throw an exception.
+ 	- "update and merge", replace parts of the source resource with the values provided AND|OR other parts of the resource are updated that you havent provided (timestamps) AND|OR updating the resource effects other resources (relationships)
 	`)
 	return true
 }
