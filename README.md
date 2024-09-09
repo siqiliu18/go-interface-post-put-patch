@@ -75,10 +75,11 @@ foo(dbPut)
 1. POST - **send no id in the payload**
 - Will store the data and assign/generate a new identifier.
 - Duplication is allowed here when same data is sent again.
+- If the request contains an ID (could be a dup of existing), then better [reject the request](https://stackoverflow.com/questions/33452765/what-to-do-when-rest-post-provides-an-id). 
 2. PUT - **must have id in the payload**
 - If the client sends data with an identifier, then we will check whether that identifier exists.
 - If the identifier exists, we will update the resource with the data, else we will create a resource with the data and assign/generate a new identifier.
-3.PATCH - **must have id in the payload**
+3. PATCH - **must have id in the payload**
 - If the client sends data with an identifier, then we will check whether that identifier exists. If the identifier exists, we will update the resource with the data, else we will throw an exception.
 
 #### Note: On the PUT method, we are not throwing an exception if an identifier is not found. But in the PATCH method, we are throwing an exception if the identifier is not found.
